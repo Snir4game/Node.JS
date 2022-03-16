@@ -12,7 +12,7 @@ router.post('/register',(request,response)=>{
  
     //אופציה ב
     const{email,password}=request.body;
-
+    
     users.push({email:email,password:password});
     return response.status(200).json({
     message:users
@@ -27,5 +27,10 @@ router.get('/Welcome',(request,response)=>{
 
 });
 
+router.get('/multi',(request,response)=>{
+    return response.status(200).json({
+        multi:200*10
+    })
+})
 
 module.exports = router;
