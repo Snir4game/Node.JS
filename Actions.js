@@ -23,7 +23,7 @@ let users=[
 ];
 
 
-router.post('/register',(request,response)=>{
+router.post('/register',async(request,response)=>{
     //const user_email=request.body.email;
     //const user_password=request.body.password;
  
@@ -36,7 +36,7 @@ router.post('/register',(request,response)=>{
         })
     } else {
 
-        const hash_password=bcryptjs.hash(password,10);
+        const hash_password= await bcryptjs.hash(password,10);
 
         users.push({email:email, password: password})
         return response.status(200).json({
